@@ -1,8 +1,8 @@
 package ru.netology.javaqa.javaqamvn;
 
 public class Radio {
-    int station;
-    int volume = 50;
+    private int station;
+    private int volume = 50;
 
     public int getStation(){
         return station;
