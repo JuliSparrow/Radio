@@ -2,8 +2,16 @@ package ru.netology.javaqa.javaqamvn;
 
 public class Radio {
     private int station;
+    private int stationCount = 10;
     private int volume = 50;
 
+    public Radio() {
+
+    }
+
+    public Radio(int stationCount) {
+        this.stationCount = stationCount;
+    }
     public int getStation(){
         return station;
     }
@@ -13,7 +21,7 @@ public class Radio {
     }
 
     public void next() {
-        if (station == 9) {
+        if (station == stationCount - 1) {
             station = 0;
         } else {
             station++;
@@ -22,14 +30,14 @@ public class Radio {
 
     public void previous() {
         if (station == 0) {
-            station = 9;
+            station = stationCount - 1;
         } else {
             station--;
         }
     }
 
     public void setStation(int number) {
-        if (number >= 0 && number <= 9) {
+        if (number >= 0 && number < stationCount) {
             station = number;
         }
     }

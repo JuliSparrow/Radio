@@ -13,10 +13,10 @@ public class RadioTest {
             "4, 5",
             "7, 8",
             "8, 9",
-            "9, 0"
+            "14, 0"
     })
     public void shouldStationIncrease(int start, int expected) {
-        Radio radio = new Radio();
+        Radio radio = new Radio(15);
         radio.setStation(start);
         radio.next();
         int actual = radio.getStation();
@@ -25,7 +25,7 @@ public class RadioTest {
 
     @ParameterizedTest
     @CsvSource(value = {
-            "0, 9",
+            "0, 14",
             "1, 0",
             "2, 1",
             "5, 4",
@@ -33,7 +33,7 @@ public class RadioTest {
             "9, 8"
     })
     public void shouldStationDecrease(int start, int expected) {
-        Radio radio = new Radio();
+        Radio radio = new Radio(15);
         radio.setStation(start);
         radio.previous();
         int actual = radio.getStation();
@@ -49,11 +49,11 @@ public class RadioTest {
             "5, 5",
             "8, 8",
             "9, 9",
-            "10, 0",
+            "10, 10",
             "20, 0"
     })
     public void shouldStationFrom0To9(int set, int expected) {
-        Radio radio = new Radio();
+        Radio radio = new Radio(15);
         radio.setStation(set);
         int actual = radio.getStation();
         Assertions.assertEquals(actual, expected);
